@@ -2,7 +2,7 @@
 
 const Footer = () => {
   const social = [
-    { label: 'LinkedIn', href: '#' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/parlyr/' },
     { label: 'X',        href: '#' },
     { label: 'GitHub',   href: 'https://github.com/C4KEBX' },
   ];
