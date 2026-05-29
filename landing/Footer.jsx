@@ -4,7 +4,7 @@ const Footer = () => {
   const social = [
     { label: 'LinkedIn', href: '#' },
     { label: 'X',        href: '#' },
-    { label: 'GitHub',   href: '#' },
+    { label: 'GitHub',   href: 'https://github.com/C4KEBX' },
   ];
 
   return (
