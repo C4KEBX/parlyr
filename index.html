@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parlyr — AI-Powered Creative Solutions</title>
+  <meta name="description" content="Creative solutions for businesses, brands, and agencies ready to move at the speed of AI.">
+
+  <!-- Placeholder fonts — replace with brand typography when assets arrive -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <nav class="nav__inner" aria-label="Main navigation">
+      <a href="/" class="nav__logo" aria-label="Parlyr — home">
+        <img src="assets/images/logo.svg" alt="Parlyr" width="120" height="32">
+      </a>
+      <a href="#contact" class="btn btn--primary nav__cta">Get in Touch</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <div class="hero__content container">
+        <h1 class="hero__heading" id="hero-heading">
+          <span class="hero__word">Built</span>
+          <span class="hero__word">Different.</span>
+          <span class="hero__word hero__word--accent">Powered</span>
+          <span class="hero__word">by</span>
+          <span class="hero__word hero__word--accent">AI.</span>
+        </h1>
+        <p class="hero__subheading">
+          Creative solutions for businesses, brands, and agencies ready to move at the speed of AI.
+        </p>
+        <a href="#contact" class="btn btn--primary btn--large hero__cta">Get in Touch</a>
+      </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="services" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <h2 class="section-label" id="services-heading">What We Do</h2>
+        <div class="services__grid">
+          <article class="service-card">
+            <h3 class="service-card__title">AI Workflow Automation</h3>
+            <p class="service-card__body">Streamline operations through intelligent, connected pipelines that eliminate bottlenecks and scale with your business.</p>
+          </article>
+          <article class="service-card">
+            <h3 class="service-card__title">Multi-agent Systems</h3>
+            <p class="service-card__body">Deploy coordinated AI agents that work in parallel to solve complex problems faster than any single system could.</p>
+          </article>
+          <article class="service-card">
+            <h3 class="service-card__title">Consulting</h3>
+            <p class="service-card__body">Strategic guidance on integrating AI into your business, brand, or agency — with a clear roadmap from day one.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Parlyr -->
+    <section class="why" id="why" aria-labelledby="why-heading">
+      <div class="container">
+        <h2 class="sr-only" id="why-heading">Why Parlyr</h2>
+        <div class="why__list">
+          <div class="why__item">
+            <span class="why__word">Personalized.</span>
+            <span class="why__detail">Every engagement is shaped around your specific needs.</span>
+          </div>
+          <div class="why__item">
+            <span class="why__word">Agile.</span>
+            <span class="why__detail">We move fast without sacrificing quality.</span>
+          </div>
+          <div class="why__item">
+            <span class="why__word">Affordable.</span>
+            <span class="why__detail">Premium output without the agency overhead.</span>
+          </div>
+          <div class="why__item">
+            <span class="why__word">Effective.</span>
+            <span class="why__detail">Results-first thinking in everything we build.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 class="contact__heading" id="contact-heading">Let's build something.</h2>
+        <form
+          class="contact__form"
+          action="https://formspree.io/f/REPLACE_WITH_FORM_ID"
+          method="POST"
+        >
+          <div class="form-field">
+            <label for="name" class="form-field__label">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-field__input"
+              required
+              autocomplete="name"
+            >
+          </div>
+          <div class="form-field">
+            <label for="email" class="form-field__label">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-field__input"
+              required
+              autocomplete="email"
+            >
+          </div>
+          <div class="form-field">
+            <label for="message" class="form-field__label">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-field__textarea"
+              required
+              rows="5"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--large">Send Message</button>
+        </form>
+        <p class="contact__email">
+          Or reach us directly at
+          <a href="mailto:hello@parlyr.site">hello@parlyr.site</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="/" class="footer__logo" aria-label="Parlyr — home">
+        <img src="assets/images/logo.svg" alt="Parlyr" width="100" height="26">
+      </a>
+      <p class="footer__copy">© 2026 Parlyr. All rights reserved.</p>
+      <div class="footer__social" aria-label="Social links">
+        <!-- Social links added when handles are confirmed -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP via CDN — SRI hashes lock to gsap@3.12.5 exactly -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+    integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
+    integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
+    crossorigin="anonymous"
+  ></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
