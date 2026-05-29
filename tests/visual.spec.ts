@@ -19,13 +19,13 @@ for (const bp of breakpoints) {
 
 test('hero CTA scrolls to contact section', async ({ page }) => {
   await page.goto('/');
-  await page.click('.hero__cta');
+  await page.click('.hero__cta-wrap .btn--primary');
   await expect(page.locator('#contact')).toBeInViewport({ timeout: 2000 });
 });
 
 test('nav CTA scrolls to contact section', async ({ page }) => {
   await page.goto('/');
-  await page.click('.nav__cta');
+  await page.click('.nav .btn--primary');
   await expect(page.locator('#contact')).toBeInViewport({ timeout: 2000 });
 });
 

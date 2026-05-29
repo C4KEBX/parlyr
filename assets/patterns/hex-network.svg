@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="hex" x="0" y="0" width="80" height="92" patternUnits="userSpaceOnUse" patternTransform="translate(0 0)">
+      
+      <g fill="none" stroke="#F26B1F" stroke-width="1.25" stroke-linejoin="round">
+        
+        <polygon points="40,4 76,24 76,68 40,88 4,68 4,24"></polygon>
+        
+        <circle cx="40" cy="4" r="2" fill="#F26B1F" stroke="none"></circle>
+        <circle cx="76" cy="24" r="2" fill="#F26B1F" stroke="none"></circle>
+        <circle cx="76" cy="68" r="2" fill="#F26B1F" stroke="none"></circle>
+        <circle cx="40" cy="88" r="2" fill="#F26B1F" stroke="none"></circle>
+        <circle cx="4" cy="68" r="2" fill="#F26B1F" stroke="none"></circle>
+        <circle cx="4" cy="24" r="2" fill="#F26B1F" stroke="none"></circle>
+      </g>
+    </pattern>
+    <radialGradient id="fade" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(35) scale(900 700)">
+      <stop offset="0" stop-color="#000" stop-opacity="0"></stop>
+      <stop offset="0.7" stop-color="#000" stop-opacity="0.6"></stop>
+      <stop offset="1" stop-color="#000" stop-opacity="1"></stop>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="#0A0A0A"></rect>
+  <rect width="800" height="600" fill="url(#hex)" opacity="0.5"></rect>
+  <rect width="800" height="600" fill="url(#fade)"></rect>
+</svg>
