@@ -1,242 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PARLYR — Creative solutions, engineered with AI.</title>
-  <meta name="description" content="Creative solutions for businesses, brands, and agencies ready to move at the speed of AI.">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PARLYR — Creative solutions, engineered with AI.</title>
+<meta name="description" content="Creative solutions for businesses, brands, and agencies ready to move at the speed of AI.">
+<link rel="stylesheet" href="colors_and_type.css" />
+<style>
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--ink);
+    color: var(--vanilla-cream);
+    font-family: "Helvetica Neue", sans-serif;
+    scroll-behavior: smooth;
+  }
+  * { box-sizing: border-box; }
+  body { min-height: 100vh; }
+  ::selection { background: var(--signal); color: var(--ink); }
 
-  <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/global.css">
-  <link rel="stylesheet" href="assets/css/components.css">
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--ink); }
+  ::-webkit-scrollbar-thumb { background: var(--carbon); border-radius: 0; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--signal); }
+
+  .nav-brand { cursor: pointer; position: relative; padding: 6px 2px; }
+  .nav-brand::after {
+    content: ""; position: absolute;
+    left: 2px; right: 2px; bottom: 2px; height: 1px;
+    background: var(--signal);
+    transform: scaleX(0); transform-origin: left center;
+    transition: transform 240ms var(--ease-out);
+  }
+  .nav-brand:hover::after { transform: scaleX(1); }
+  .nav-brand:hover img {
+    filter: drop-shadow(0 0 12px rgba(242,107,31,.55));
+    transform: translateY(-1px);
+  }
+
+  @keyframes fadeUp {
+    0%   { opacity: 0; transform: translateY(16px) }
+    100% { opacity: 1; transform: translateY(0) }
+  }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 </head>
 <body>
+<div id="root"></div>
 
-  <!-- Navigation -->
-  <header class="nav" id="nav" role="banner">
-    <a href="#top" class="nav__logo" aria-label="PARLYR — home">
-      <img src="assets/logos/parlyr-wordmark-cream.png" alt="PARLYR" width="auto" height="18">
-    </a>
-    <nav class="nav__links" aria-label="Main navigation">
-      <a href="#what"    class="nav__link">What We Do</a>
-      <a href="#why"     class="nav__link">Why PARLYR</a>
-      <a href="#contact" class="nav__link">Contact</a>
-      <a href="#contact" class="btn--primary btn--sm">Get in Touch <span class="arrow" aria-hidden="true">→</span></a>
-    </nav>
-  </header>
+<script type="text/babel" src="landing/Bits.jsx"></script>
+<script type="text/babel" src="landing/Nav.jsx"></script>
+<script type="text/babel" src="landing/Hero.jsx"></script>
+<script type="text/babel" src="landing/Services.jsx"></script>
+<script type="text/babel" src="landing/Why.jsx"></script>
+<script type="text/babel" src="landing/Contact.jsx"></script>
+<script type="text/babel" src="landing/Footer.jsx"></script>
 
-  <main>
-
-    <!-- Hero -->
-    <section class="hero" id="top" aria-labelledby="hero-heading">
-      <div class="hero__hex" aria-hidden="true"></div>
-      <div class="hero__vignette" aria-hidden="true"></div>
-
-      <div class="hero__content">
-        <div class="hero__eyebrow">
-          <span class="eyebrow">00 / A creative solutions company, powered by AI</span>
-        </div>
-
-        <h1 class="hero__heading" id="hero-heading">
-          <span class="hero__line">
-            <span class="hero__word">Creative</span><span class="hero__word">solutions,</span>
-          </span>
-          <span class="hero__line">
-            <span class="hero__word">engineered</span><span class="hero__word">with</span><span class="hero__word hero__word--accent">AI.</span>
-          </span>
-        </h1>
-
-        <div class="hero__sub">
-          <p class="hero__subheading">
-            Personalized work for brands, agencies, and ambitious teams. We architect the systems and ship the work — end to end.
-          </p>
-          <div class="hero__cta-wrap">
-            <a href="#contact" class="btn--primary btn--lg">Get in Touch <span class="arrow" aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero__scroll" aria-hidden="true">
-        <span>Scroll</span>
-        <span class="hero__scroll-line"></span>
-      </div>
-    </section>
-
-    <!-- What We Do -->
-    <section class="services" id="what" aria-labelledby="services-heading">
-      <div class="services__inner">
-        <div class="services__header">
-          <div class="services__title-block">
-            <span class="eyebrow">01 / What We Do</span>
-            <h2 class="services__title" id="services-heading">
-              Three services,<br>
-              <span>end to end.</span>
-            </h2>
-          </div>
-          <p class="services__descriptor">
-            Pick one, or all three. We handle the full scope — strategy through ship.
-          </p>
-        </div>
-
-        <div class="services__grid">
-          <article class="service-card">
-            <div class="service-card__num" aria-hidden="true">01</div>
-            <h3 class="service-card__title">AI Workflow Automation</h3>
-            <p class="service-card__body">Replace 20 manual workflows with one agentic loop. We architect, your team operates.</p>
-            <div class="service-card__tags" aria-label="Technologies">
-              <span class="service-tag">n8n</span>
-              <span class="service-tag">Temporal</span>
-              <span class="service-tag">Webhooks</span>
-            </div>
-          </article>
-          <article class="service-card">
-            <div class="service-card__num" aria-hidden="true">02</div>
-            <h3 class="service-card__title">Multi-Agent Systems</h3>
-            <p class="service-card__body">Coordinated agents that triage, reason, and act across channels. Built on Anthropic.</p>
-            <div class="service-card__tags" aria-label="Technologies">
-              <span class="service-tag">Anthropic</span>
-              <span class="service-tag">LangGraph</span>
-              <span class="service-tag">Vercel</span>
-            </div>
-          </article>
-          <article class="service-card">
-            <div class="service-card__num" aria-hidden="true">03</div>
-            <h3 class="service-card__title">Consulting</h3>
-            <p class="service-card__body">Audit, blueprint, roadmap. Strategic guidance from a team that has shipped it before.</p>
-            <div class="service-card__tags" aria-label="Deliverables">
-              <span class="service-tag">Audit</span>
-              <span class="service-tag">Strategy</span>
-              <span class="service-tag">Roadmap</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why PARLYR -->
-    <section class="why" id="why" aria-labelledby="why-heading">
-      <div class="why__inner">
-        <div class="why__header">
-          <span class="eyebrow">02 / Why PARLYR</span>
-          <h2 class="why__title" id="why-heading">
-            Four things you can<br>count on.
-          </h2>
-        </div>
-
-        <div class="why__list">
-          <div class="why__item">
-            <div class="why__word-wrap" aria-hidden="true">
-              <span class="why__word">Personalized.</span>
-              <span class="why__caret"></span>
-            </div>
-            <p class="why__detail">We build around your brand, not a template.</p>
-          </div>
-          <div class="why__item">
-            <div class="why__word-wrap" aria-hidden="true">
-              <span class="why__word">Agile.</span>
-              <span class="why__caret"></span>
-            </div>
-            <p class="why__detail">Sprints not slideshows. We ship in days.</p>
-          </div>
-          <div class="why__item">
-            <div class="why__word-wrap" aria-hidden="true">
-              <span class="why__word">Affordable.</span>
-              <span class="why__caret"></span>
-            </div>
-            <p class="why__detail">AI does what a team of ten used to.</p>
-          </div>
-          <div class="why__item">
-            <div class="why__word-wrap" aria-hidden="true">
-              <span class="why__word">Effective.</span>
-              <span class="why__caret"></span>
-            </div>
-            <p class="why__detail">Work that performs, not work that wins awards.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact" id="contact" aria-labelledby="contact-heading">
-      <div class="contact__inner">
-        <!-- Left: copy -->
-        <div>
-          <span class="eyebrow">03 / Contact</span>
-          <h2 class="contact__heading" id="contact-heading">
-            Let's <span>talk.</span>
-          </h2>
-          <p class="contact__desc">
-            Tell us what you're trying to build. We'll come back with a recommendation, a price, and a date — usually within 48 hours.
-          </p>
-          <div class="contact__alt">
-            <span class="contact__alt-label">Or skip the form</span>
-            <a href="mailto:justin@parlyr.site" class="contact__email-link">justin@parlyr.site</a>
-          </div>
-        </div>
-
-        <!-- Right: form -->
-        <div>
-          <form
-            class="contact__form"
-            id="contact-form"
-            action="https://formspree.io/f/mvzylypd"
-            method="POST"
-          >
-            <div class="form-field">
-              <label for="name" class="form-field__label">Your name <span class="required" aria-label="required">*</span></label>
-              <input type="text" id="name" name="name" class="form-field__input" required autocomplete="name">
-            </div>
-            <div class="form-field">
-              <label for="email" class="form-field__label">Email <span class="required" aria-label="required">*</span></label>
-              <input type="email" id="email" name="email" class="form-field__input" required autocomplete="email">
-            </div>
-            <div class="form-field">
-              <label for="message" class="form-field__label">What you're trying to build <span class="required" aria-label="required">*</span></label>
-              <textarea id="message" name="message" class="form-field__textarea" required rows="4"></textarea>
-            </div>
-            <div class="contact__form-footer">
-              <span class="contact__reply-note">We'll reply within 48 hours.</span>
-              <button type="submit" class="btn--primary btn--lg">
-                Send Message <span class="arrow" aria-hidden="true">→</span>
-              </button>
-            </div>
-          </form>
-
-          <div class="contact__success" id="contact-success" role="status" aria-live="polite">
-            <span class="contact__success-badge">Message sent</span>
-            <h3 class="contact__success-heading">Got it, <span id="success-name">friend</span>.</h3>
-            <p class="contact__success-body">
-              We'll be in touch at <strong id="success-email"></strong> within 48 hours.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer__inner">
-      <a href="#top" class="footer__logo" aria-label="PARLYR — back to top">
-        <img src="assets/logos/parlyr-wordmark-cream.png" alt="PARLYR" width="auto" height="16">
-      </a>
-      <p class="footer__copy">© 2026 PARLYR · All rights reserved</p>
-      <nav class="footer__social" aria-label="Social links">
-        <a href="#" class="footer__social-link">LinkedIn</a>
-        <a href="#" class="footer__social-link">X</a>
-        <a href="#" class="footer__social-link">GitHub</a>
-      </nav>
-    </div>
-  </footer>
-
-  <!-- GSAP via CDN — SRI hashes lock to gsap@3.12.5 exactly -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
-    integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"
-    crossorigin="anonymous"
-  ></script>
-  <script src="assets/js/main.js"></script>
-
+<script type="text/babel">
+const App = () => (
+  <>
+    <Nav />
+    <main>
+      <Hero />
+      <Services />
+      <Why />
+      <Contact />
+    </main>
+    <Footer />
+  </>
+);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
 </body>
 </html>

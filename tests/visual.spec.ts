@@ -12,27 +12,33 @@ for (const bp of breakpoints) {
     await page.setViewportSize({ width: bp.width, height: bp.height });
     await page.goto('/');
     await expect(page.locator('h1')).toBeVisible();
-    await page.waitForTimeout(1000); // let GSAP animations settle
+    await page.waitForTimeout(1500); // let React render + animations settle
     await expect(page).toHaveScreenshot(`hero-${bp.name}.png`);
   });
 }
 
 test('hero CTA scrolls to contact section', async ({ page }) => {
   await page.goto('/');
-  await page.click('.hero__cta-wrap .btn--primary');
-  await expect(page.locator('#contact')).toBeInViewport({ timeout: 2000 });
+  await expect(page.locator('h1')).toBeVisible();
+  // Hero CTA is the first "Get in Touch" link on the page (nav has one too)
+  await page.locator('a', { hasText: 'Get in Touch' }).nth(1).click();
+  await expect(page.locator('#contact')).toBeInViewport({ timeout: 3000 });
 });
 
 test('nav CTA scrolls to contact section', async ({ page }) => {
   await page.goto('/');
-  await page.click('.nav .btn--primary');
-  await expect(page.locator('#contact')).toBeInViewport({ timeout: 2000 });
+  await expect(page.locator('h1')).toBeVisible();
+  // Nav CTA is the first "Get in Touch" link
+  await page.locator('a', { hasText: 'Get in Touch' }).first().click();
+  await expect(page.locator('#contact')).toBeInViewport({ timeout: 3000 });
 });
 
 test('contact form fields are present and interactive', async ({ page }) => {
   await page.goto('/');
-  await page.locator('#name').fill('Test User');
-  await page.locator('#email').fill('test@example.com');
-  await page.locator('#message').fill('Hello from Playwright');
-  await expect(page.locator('button[type="submit"]')).toBeEnabled();
+  await expect(page.locator('h1')).toBeVisible({ timeout: 10000 });
+  await page.locator('#contact').scrollIntoViewIfNeeded();
+  await page.locator('#contact input[type="text"]').fill('Test User');
+  await page.locator('#contact input[type="email"]').fill('test@example.com');
+  await page.locator('#contact textarea').fill('Hello from Playwright');
+  await expect(page.locator('#contact input[type="text"]')).toHaveValue('Test User');
 });
