@@ -45,14 +45,64 @@ const Field = ({ label, type = 'text', value, onChange, multiline = false, requi
   );
 };
 
+const SubmitButton = ({ enabled, loading }) => {
+  const [hover, setHover] = React.useState(false);
+  const active = enabled && !loading;
+  return (
+    <button
+      type="submit"
+      disabled={!active}
+      onMouseEnter={() => active && setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        fontFamily: '"Helvetica Neue", sans-serif',
+        fontWeight: 700,
+        fontSize: 15,
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+        padding: '20px 34px',
+        borderRadius: 9999,
+        border: 'none',
+        cursor: active ? 'pointer' : 'not-allowed',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 12,
+        transition: 'all 180ms var(--ease-out)',
+        background: active
+          ? (hover ? 'var(--signal-hot)' : 'var(--signal)')
+          : 'var(--smoke)',
+        color: active ? 'var(--ink)' : 'var(--ash)',
+        boxShadow: active && hover
+          ? '0 0 0 1px rgba(242,107,31,.6), 0 14px 40px rgba(242,107,31,.45)'
+          : 'none',
+      }}
+    >
+      {loading ? 'Sending…' : 'Submit'}
+      {!loading && (
+        <span style={{
+          fontSize: 16, lineHeight: 1,
+          transform: hover && active ? 'translateX(3px)' : 'translateX(0)',
+          transition: 'transform 180ms var(--ease-out)',
+        }}>→</span>
+      )}
+    </button>
+  );
+};
+
 const Contact = () => {
   const [ref, isIn] = useReveal({ threshold: 0.15 });
   const [form, setForm] = React.useState({ name: '', email: '', message: '' });
   const [sent, setSent] = React.useState(false);
+  const [submitting, setSubmitting] = React.useState(false);
+
+  const canSubmit = form.name.trim().length > 0
+    && form.email.trim().includes('@')
+    && form.message.trim().split(/\s+/).filter(Boolean).length >= 3;
 
   const submit = async (e) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) return;
+    if (!canSubmit) return;
+    setSubmitting(true);
     const data = new FormData();
     data.append('name', form.name);
     data.append('email', form.email);
@@ -61,6 +111,7 @@ const Contact = () => {
       method: 'POST', body: data,
       headers: { 'Accept': 'application/json' },
     });
+    setSubmitting(false);
     if (res.ok) setSent(true);
   };
 
@@ -148,7 +199,7 @@ const Contact = () => {
                 }}>
                   We'll reply within 48 hours.
                 </span>
-                <PrimaryCTA size="lg" href="#">Get in Touch</PrimaryCTA>
+                <SubmitButton enabled={canSubmit} loading={submitting} />
               </div>
             </form>
           ) : (
